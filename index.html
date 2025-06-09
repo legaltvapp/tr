@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Legal Tv İndir</title>
+  <title>Legal TV İndir</title>
   <style>
     :root {
       --color-bg-light: #f5f7fa;
-      --color-text-light: #222222;
+      --color-text-light: #222;
       --color-bg-dark: #121212;
       --color-text-dark: #e0e0e0;
       --color-primary: #007bff;
+      --color-secondary: #6c757d;
       --color-button-bg: #007bff;
-      --color-button-text: #ffffff;
+      --color-button-text: #fff;
       --color-button-hover-bg: #0056b3;
       --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --border-radius: 8px;
     }
 
     body {
@@ -22,10 +24,10 @@
       font-family: var(--font-family);
       background-color: var(--color-bg-light);
       color: var(--color-text-light);
-      transition: background-color 0.3s ease, color 0.3s ease;
-      min-height: 100vh;
+      transition: background-color 0.5s ease, color 0.5s ease;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
     }
 
     body.dark-theme {
@@ -33,6 +35,7 @@
       color: var(--color-text-dark);
     }
 
+    /* Header styles */
     header {
       padding: 1rem 1.5rem;
       background-color: var(--color-button-bg);
@@ -40,21 +43,40 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     header h1 {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
     }
 
+    /* Logo styles */
+    .logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      border-radius: 50%;
+      background-color: #fff;
+      padding: 5px;
+    }
+
+    /* Theme toggle button */
     .theme-toggle {
       background: none;
       border: 2px solid var(--color-button-text);
       color: var(--color-button-text);
-      padding: 0.3rem 0.8rem;
+      padding: 0.4rem 0.9rem;
       border-radius: 4px;
       cursor: pointer;
       font-size: 1rem;
+      font-weight: 600;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
@@ -65,100 +87,133 @@
       outline: none;
     }
 
-    main {
+    /* Main content */
+ main {
       flex: 1;
-      max-width: 720px;
+      max-width: 768px;
       margin: 2rem auto;
       padding: 0 1rem;
-      width: 100%;
     }
 
+    /* APK info card */
     .apk-info {
       background-color: rgba(0, 123, 255, 0.1);
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: background-color 0.3s ease;
     }
 
     body.dark-theme .apk-info {
       background-color: rgba(0, 123, 255, 0.2);
-      box-shadow: 0 0 15px rgba(0,123,255,0.4);
+      box-shadow: 0 4px 15px rgba(0,123,255,0.4);
+    }
+
+    /* Title area with logo */
+    .title-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
     }
 
     .apk-title {
-      margin-top: 0;
       font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .apk-version {
-      font-size: 1rem;
-      color: var(--color-primary);
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-
-    .apk-description {
-      font-size: 1.1rem;
-      line-height: 1.5;
-      margin-bottom: 1.5rem;
-    }
-
-    .apk-features {
-      margin-bottom: 1.5rem;
-    }
-
-    .apk-features h2 {
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-      border-bottom: 2px solid var(--color-primary);
-      padding-bottom: 0.25rem;
-    }
-
-    .apk-features ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
       margin: 0;
     }
 
-    .apk-features ul li {
-      margin-bottom: 0.5rem;
+    .logo-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--color-primary);
+    }
+
+    /* Version, downloads, update info */
+    .apk-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      color: var(--color-secondary);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Features list */
+    .apk-features {
+      margin-bottom: 2rem;
+    }
+
+    .apk-features h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px solid var(--color-primary);
+      padding-bottom: 0.3rem;
+    }
+
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .features-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.8rem;
       font-size: 1rem;
     }
 
+    .features-list li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      top: 0.2rem;
+      color: var(--color-primary);
+      font-size: 1.2rem;
+    }
+
+    /* Download button styles */
     .download-section {
       text-align: center;
+      margin-top: 2rem;
     }
 
     .download-button {
       background-color: var(--color-button-bg);
       color: var(--color-button-text);
-      border: none;
-      border-radius: 6px;
-      padding: 0.75rem 2rem;
-      font-size: 1.25rem;
+      padding: 1rem 2.5rem;
+      border-radius: var(--border-radius);
+      font-size: 1.3rem;
       font-weight: 700;
-      cursor: pointer;
       text-decoration: none;
       display: inline-block;
-      box-shadow: 0 4px 8px rgba(0,123,255,0.3);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,123,255,0.2);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
     }
 
     .download-button:hover,
     .download-button:focus {
       background-color: var(--color-button-hover-bg);
-      box-shadow: 0 6px 12px rgba(0,123,255,0.5);
+      box-shadow: 0 6px 16px rgba(0,123,255,0.3);
+      transform: translateY(-2px);
       outline: none;
     }
 
+    /* Footer styles */
     footer {
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      color: #888;
+      color: #777;
       background-color: var(--color-bg-light);
       transition: background-color 0.3s ease, color 0.3s ease;
     }
@@ -168,11 +223,25 @@
       color: #bbb;
     }
 
-    @media (max-width: 480px) {
+    /* Responsive adjustments */
+    @media(max-width: 768px){
       .apk-title {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
       }
+      .download-button {
+        font-size: 1.1rem;
+        padding: 0.75rem 2rem;
+      }
+    }
 
+    @media(max-width: 480px){
+      .apk-title {
+        font-size: 1.4rem;
+      }
+      .logo-img {
+        width: 50px;
+        height: 50px;
+      }
       .download-button {
         font-size: 1rem;
         padding: 0.6rem 1.5rem;
@@ -182,31 +251,40 @@
 </head>
 <body>
   <header>
-    <h1>APK İndir</h1>
+    <h1>
+      <img src="https://via.placeholder.com/50" alt="Legal TV Logo" class="logo-img" />
+      Legal TV İndir
+    </h1>
     <button aria-label="Tema değiştir" class="theme-toggle" id="themeToggle">Koyu Tema</button>
   </header>
 
   <main>
     <section class="apk-info" aria-labelledby="apkTitle">
-      <h2 id="apkTitle" class="apk-title">Legal TV APK</h2>
-      <p class="apk-version">Versiyon: 1.1</p>
+      <div class="title-area">
+        <h2 id="apkTitle" class="apk-title">Legal TV APK</h2>
+      </div>
+      <div class="apk-meta">
+        <div class="meta-item"><strong>Versiyon:</strong> 1.1</div>
+        <div class="meta-item"><strong>Güncelleme:</strong> Haziran 2025</div>
+        <div class="meta-item"><strong>İndirilme:</strong> +120</div>
+      </div>
       <p class="apk-description">
-        Legal TV ile internet ortamında ücretsiz şekilde bulunan yayınları sorunsuzca izleyebilirsiniz. Tüm içerikler Free-To-Air mantığıyla verilmektedir. İndirin ve kurulumu yapın, doyasıya maç heyecanını yaşayın !
+        Legal TV ile internet ortamında ücretsiz şekilde bulunan yayınları sorunsuzca izleyebilirsiniz. Tüm içerikler Free-To-Air mantığıyla verilmektedir. İndirin ve kurulumu yapın, doyasıya maç heyecanını yaşayın!
       </p>
 
       <section class="apk-features" aria-labelledby="featuresTitle">
         <h3 id="featuresTitle">Özellikler</h3>
-        <ul>
-          <li>Sorunsuz kesintisiz yayın/li>
+        <ul class="features-list">
+          <li>Sorunsuz, kesintisiz yayın</li>
           <li>Reklamsız ve hızlı</li>
-          <li>Düzenli güncellenen yayınlar</li>
+          <li>Düzenli güncellenen içerikler</li>
           <li>Binlerce kullanıcı</li>
-          <li>Tamamen ücretsiz</li>
+          <li>Ücretsiz erişim</li>
         </ul>
       </section>
 
       <section class="download-section">
-        <a href="https://example.com/download/OrnekUygulama.apk" class="download-button" download aria-label="Örnek Uygulama APK dosyasını indir">
+        <a href="https://dosya.at/files/1c78bf492e5933bef37ccafed8eeab1b.apk" class="download-button" download aria-label="Legal TV APK dosyasını indir">
           Legal TV İndir
         </a>
       </section>
@@ -214,7 +292,7 @@
   </main>
 
   <footer>
-    &copy; 2025 Legal App Tüm hakları saklıdır.
+    © 2025 Legal App | Tüm hakları saklıdır.
   </footer>
 
   <script>
@@ -222,13 +300,14 @@
       const themeToggleBtn = document.getElementById('themeToggle');
       const bodyEl = document.body;
 
-      // Initialize theme based on localStorage or default light
+      // Tema tercihini yükle
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'dark') {
         bodyEl.classList.add('dark-theme');
         themeToggleBtn.textContent = 'Açık Tema';
       }
 
+      // Tema değiştirme
       themeToggleBtn.addEventListener('click', () => {
         bodyEl.classList.toggle('dark-theme');
         if (bodyEl.classList.contains('dark-theme')) {
@@ -243,4 +322,3 @@
   </script>
 </body>
 </html>
-
