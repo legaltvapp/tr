@@ -1,82 +1,185 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>APK İndirme Sayfası</title>
   <style>
-    /* Responsive tasarım için CSS */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+    /* Reset some default styles */
+    * {
+      box-sizing: border-box;
     }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
       padding: 20px;
     }
-    .app-info {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
+
+    .container {
+      max-width: 600px;
+      background: #fff;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
     }
-    .app-info img {
-      max-width: 100px;
-      margin-right: 20px;
+
+    header {
+      text-align: center;
+      margin-bottom: 25px;
     }
-    .app-info h2 {
+
+    header h1 {
       margin: 0;
+      font-size: 1.8rem;
+      color: #007BFF;
     }
-    .app-features {
-      margin-bottom: 20px;
-    }
-    .app-features ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    .app-features li {
-      margin-bottom: 10px;
-    }
-    .download-button {
+
+    .apk-image {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
       display: block;
-      background-color: #4CAF50;
-      color: white;
+      margin: 0 auto 20px auto;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,123,255,0.3);
+    }
+
+    .description {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .features {
+      margin-bottom: 25px;
+    }
+
+    .features h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #007BFF;
+      border-bottom: 2px solid #007BFF;
+      padding-bottom: 5px;
+    }
+
+    .features ul {
+      list-style: inside disc;
+      padding-left: 0;
+      margin: 0;
+      color: #444;
+    }
+
+    .download-section {
       text-align: center;
-      padding: 10px 20px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      background-color: #28a745;
+      color: #fff;
       text-decoration: none;
-      border-radius: 5px;
-      font-size: 16px;
-      margin-bottom: 20px;
+      font-weight: 600;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
     }
-    .download-button:hover {
-      background-color: #45a049;
+
+    .download-btn:hover {
+      background-color: #218838;
+      box-shadow: 0 6px 20px rgba(33, 136, 56, 0.6);
     }
-    .virus-total {
-      text-align: center;
-      font-size: 14px;
-      margin-bottom: 20px;
+
+    .apk-info {
+      margin-top: 25px;
+      font-size: 0.9rem;
+      color: #666;
+      border-top: 1px solid #ddd;
+      padding-top: 15px;
+    }
+
+    .apk-info div {
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        padding: 15px;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .download-btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.2rem;
+      }
+
+      .apk-image {
+        width: 100px;
+        height: 100px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="app-info">
-      <img src="app-icon.png" alt="App Icon">
-      <h2>Uygulama Adı</h2>
-    </div>
-    <div class="app-features">
-      <h3>Özellikler:</h3>
+  <div class="container" role="main">
+    <header>
+      <h1>Örnek Uygulama APK İndir</h1>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/7/78/Android_robot.svg"
+        alt="Uygulama logosu"
+        class="apk-image"
+      />
+    </header>
+
+    <section class="description" aria-label="Uygulama açıklaması">
+      <p>
+        Örnek Uygulama, mobil cihazlarınızda kullanabileceğiniz hızlı, güvenli ve
+        kullanıcı dostu bir uygulamadır. Günlük ihtiyaçlarınızı karşılamak için
+        özel olarak tasarlanmıştır.
+      </p>
+    </section>
+
+    <section class="features" aria-labelledby="features-title">
+      <h2 id="features-title">Özellikler</h2>
       <ul>
-        <li>Özellik 1</li>
-        <li>Özellik 2</li>
-        <li>Özellik 3</li>
+        <li>Kullanıcı dostu arayüz</li>
+        <li>Yüksek performans ve hız</li>
+        <li>Offline kullanım desteği</li>
+        <li>Düzenli güncellemeler</li>
+        <li>Güvenli veri yönetimi</li>
       </ul>
-    </div>
-    <a href="app.apk" class="download-button">İndir</a>
-    <div class="virus-total">
-      <p>VirusTotal Raporu: <a href="https://www.virustotal.com/gui/file/1234567890abcdef1234567890abcdef12345678/detection">Tıklayın</a></p>
-    </div>
+    </section>
+
+    <section class="download-section" aria-label="APK indirme linki">
+      <a
+        href="https://example.com/indir/ornek-uygulama.apk"
+        class="download-btn"
+        download
+        aria-describedby="download-info"
+        >APK Dosyasını İndir</a
+      >
+      <div id="download-info" class="apk-info">
+        <div><strong>Dosya Boyutu:</strong> 15 MB</div>
+        <div><strong>Versiyon:</strong> 2.3.1</div>
+        <div><strong>Güncelleme Tarihi:</strong> 15 Haziran 2024</div>
+        <div><strong>Gereksinimler:</strong> Android 5.0 ve üzeri</div>
+      </div>
+    </section>
   </div>
 </body>
 </html>
+
