@@ -1,324 +1,324 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Legal TV İndir</title>
-  <style>
-    :root {
-      --color-bg-light: #f5f7fa;
-      --color-text-light: #222;
-      --color-bg-dark: #121212;
-      --color-text-dark: #e0e0e0;
-      --color-primary: #007bff;
-      --color-secondary: #6c757d;
-      --color-button-bg: #007bff;
-      --color-button-text: #fff;
-      --color-button-hover-bg: #0056b3;
-      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      --border-radius: 8px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gelişmiş Uygulama Sitesi</title>
+<style>
+  /* Root variables for themes */
+  :root {
+    --bg-color-day: #f0f2f5;
+    --text-color-day: #222;
+    --accent-color: #007bff;
+    --bg-color-night: #1e1e1e;
+    --text-color-night: #e0e0e0;
+    --button-color: #007bff;
+    --button-hover-color: #0056b3;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --section-spacing: 2rem;
+    --border-radius: 10px;
+    --transition-duration: 0.5s;
+  }
 
-    body {
-      margin: 0;
-      font-family: var(--font-family);
-      background-color: var(--color-bg-light);
-      color: var(--color-text-light);
-      transition: background-color 0.5s ease, color 0.5s ease;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+  /* Body styles */
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--bg-color-day);
+    color: var(--text-color-day);
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+    display: flex;
+    flex-direction: column;
+  }
 
-    body.dark-theme {
-      background-color: var(--color-bg-dark);
-      color: var(--color-text-dark);
-    }
+  body.dark-theme {
+    background-color: var(--bg-color-night);
+    color: var(--text-color-night);
+  }
 
-    /* Header styles */
-    header {
-      padding: 1rem 1.5rem;
-      background-color: var(--color-button-bg);
-      color: var(--color-button-text);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
+  /* Header styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: v ar(--button-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: background-color var(--transition-duration);
+}
 
-    header h1 {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin: 0;
-      font-size: 1.8rem;
-    }
+header h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.8rem;
+  margin: 0;
+  cursor: pointer;
+}
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.logo:hover {
+  transform: scale(1.1);
+}
 
-    /* Logo styles */
-    .logo {
-      width: 50px;
-      height: 50px;
-      object-fit: contain;
-      border-radius: 50%;
-      background-color: #fff;
-      padding: 5px;
-    }
+/* Theme toggle button */
+#themeToggle {
+  padding: 0.4rem 1rem;
+  border: 2px solid var(--text-color-day);
+  background: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+#themeToggle:hover {
+  background-color: var(--text-color-day);
+  color: #fff;
+}
 
-    /* Theme toggle button */
-    .theme-toggle {
-      background: none;
-      border: 2px solid var(--color-button-text);
-      color: var(--color-button-text);
-      padding: 0.4rem 0.9rem;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+/* Main container */
+main {
+  max-width: 900px;
+  margin: var(--section-spacing) auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-spacing);
+}
 
-    .theme-toggle:hover,
-    .theme-toggle:focus {
-      background-color: var(--color-button-text);
-      color: var(--color-button-bg);
-      outline: none;
-    }
+/* Sections styling */
+section {
+  background-color: rgba(0, 123, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
 
-    /* Main content */
- main {
-      flex: 1;
-      max-width: 768px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
+/* Alternate background color for night theme */
+body.dark-theme section {
+  background-color: rgba(30, 30, 30, 0.5);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
 
-    /* APK info card */
-    .apk-info {
-      background-color: rgba(0, 123, 255, 0.1);
-      border-radius: var(--border-radius);
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: background-color 0.3s ease;
-    }
+/* Animation keyframes */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    body.dark-theme .apk-info {
-      background-color: rgba(0, 123, 255, 0.2);
-      box-shadow: 0 4px 15px rgba(0,123,255,0.4);
-    }
+/* Logo and title */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.section-title h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.section-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-color);
+  transition: transform 0.3s;
+}
+.section-logo:hover {
+  transform: scale(1.1);
+}
 
-    /* Title area with logo */
-    .title-area {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
+/* Images section */
+.images-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.images-container img {
+  max-width: 100%;
+  width: 150px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.images-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
 
-    .apk-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin: 0;
-    }
+/* Buttons styles */
+.btn {
+  padding: 1rem 2rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.5rem 0;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.download-btn {
+  background-color: var(--button-color);
+  color: #fff;
+}
+.download-btn:hover {
+  background-color: var(--button-hover-color);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+.antivirus-btn {
+  background-color: #28a745;
+}
+.antivirus-btn:hover {
+  background-color: #218838;
+}
 
-    .logo-img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--color-primary);
-    }
+/* Features list styling */
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1.6;
+}
+.features-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.features-list li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
 
-    /* Version, downloads, update info */
-    .apk-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-      color: var(--color-secondary);
-    }
-
-    .meta-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    /* Features list */
-    .apk-features {
-      margin-bottom: 2rem;
-    }
-
-    .apk-features h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.75rem;
-      border-bottom: 2px solid var(--color-primary);
-      padding-bottom: 0.3rem;
-    }
-
-    .features-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .features-list li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.8rem;
-      font-size: 1rem;
-    }
-
-    .features-list li::before {
-      content: '✔';
-      position: absolute;
-      left: 0;
-      top: 0.2rem;
-      color: var(--color-primary);
-      font-size: 1.2rem;
-    }
-
-    /* Download button styles */
-    .download-section {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .download-button {
-      background-color: var(--color-button-bg);
-      color: var(--color-button-text);
-      padding: 1rem 2.5rem;
-      border-radius: var(--border-radius);
-      font-size: 1.3rem;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-block;
-      box-shadow: 0 4px 12px rgba(0,123,255,0.2);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-    }
-
-    .download-button:hover,
-    .download-button:focus {
-      background-color: var(--color-button-hover-bg);
-      box-shadow: 0 6px 16px rgba(0,123,255,0.3);
-      transform: translateY(-2px);
-      outline: none;
-    }
-
-    /* Footer styles */
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #777;
-      background-color: var(--color-bg-light);
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    body.dark-theme footer {
-      background-color: var(--color-bg-dark);
-      color: #bbb;
-    }
-
-    /* Responsive adjustments */
-    @media(max-width: 768px){
-      .apk-title {
-        font-size: 1.8rem;
-      }
-      .download-button {
-        font-size: 1.1rem;
-        padding: 0.75rem 2rem;
-      }
-    }
-
-    @media(max-width: 480px){
-      .apk-title {
-        font-size: 1.4rem;
-      }
-      .logo-img {
-        width: 50px;
-        height: 50px;
-      }
-      .download-button {
-        font-size: 1rem;
-        padding: 0.6rem 1.5rem;
-      }
-    }
-  </style>
+/* Responsive adjustments */
+@media(max-width: 768px){
+  header h1 {
+    font-size: 1.5rem;
+  }
+  .section-title h2 {
+    font-size: 1.5rem;
+  }
+  .section-logo {
+    width: 50px;
+    height: 50px;
+  }
+  .images-container {
+    justify-content: center;
+  }
+}
+</style>
 </head>
 <body>
-  <header>
-    <h1>
-      <img src="https://via.placeholder.com/50" alt="Legal TV Logo" class="logo-img" />
-      Legal TV İndir
-    </h1>
-    <button aria-label="Tema değiştir" class="theme-toggle" id="themeToggle">Koyu Tema</button>
-  </header>
 
-  <main>
-    <section class="apk-info" aria-labelledby="apkTitle">
-      <div class="title-area">
-        <h2 id="apkTitle" class="apk-title">Legal TV APK</h2>
-      </div>
-      <div class="apk-meta">
-        <div class="meta-item"><strong>Versiyon:</strong> 1.1</div>
-        <div class="meta-item"><strong>Güncelleme:</strong> Haziran 2025</div>
-        <div class="meta-item"><strong>İndirilme:</strong> +120</div>
-      </div>
-      <p class="apk-description">
-        Legal TV ile internet ortamında ücretsiz şekilde bulunan yayınları sorunsuzca izleyebilirsiniz. Tüm içerikler Free-To-Air mantığıyla verilmektedir. İndirin ve kurulumu yapın, doyasıya maç heyecanını yaşayın!
-      </p>
+<header>
+  <h1>
+    <img src="https://via.placeholder.com/70" alt="Logo" class="logo" />
+    Gelişmiş Uygulama
+  </h1>
+  <button id="themeToggle">Karanlık Tema</button>
+</header>
 
-      <section class="apk-features" aria-labelledby="featuresTitle">
-        <h3 id="featuresTitle">Özellikler</h3>
-        <ul class="features-list">
-          <li>Sorunsuz, kesintisiz yayın</li>
-          <li>Reklamsız ve hızlı</li>
-          <li>Düzenli güncellenen içerikler</li>
-          <li>Binlerce kullanıcı</li>
-          <li>Ücretsiz erişim</li>
-        </ul>
-      </section>
+<main>
 
-      <section class="download-section">
-        <a href="https://dosya.at/files/1c78bf492e5933bef37ccafed8eeab1b.apk" class="download-button" download aria-label="Legal TV APK dosyasını indir">
-          Legal TV İndir
-        </a>
-      </section>
-    </section>
-  </main>
+<!-- Image Section -->
+<section>
+  <div class="section-title">
+    <h2>Görüntüler</h2>
+  </div>
+  <div class="images-container">
+    <img src="https://via.placeholder.com/300x200?text=Ekran+1" alt="Ekran Görüntüsü 1" />
+    <img src="https://via.placeholder.com/300x200?text=Ekran+2" alt="Ekran Görüntüsü 2" />
+    <img src="https://via.placeholder.com/300x200?text=Ekran+3" alt="Ekran Görüntüsü 3" />
+  </div>
+</section>
 
-  <footer>
-    © 2025 Legal App | Tüm hakları saklıdır.
-  </footer>
+<!-- Description & Download -->
+<section>
+  <div class="section-title">
+    <h2>Açıklama</h2>
+  </div>
+  <p>
+    Bu uygulamayı indirerek en güncel özelliklere ulaşabilir, hızlı ve güvenli kullanım sağlayabilirsiniz.
+  </p>
+  <a href="#" class="btn download-btn" download>İndir</a>
+</section>
 
-  <script>
-    (function() {
-      const themeToggleBtn = document.getElementById('themeToggle');
-      const bodyEl = document.body;
+<!-- Features -->
+<section>
+  <div class="section-title">
+    <h2>Özellikler</h2>
+  </div>
+  <ul class="features-list">
+    <li>Hızlı ve stabil performans</li>
+    <li>Gelişmiş güvenlik</li>
+    <li>Kolay kullanım</li>
+    <li>Her cihazda uyumlu</li>
+    <li>Güncellemeler otomatik</li>
+  </ul>
+</section>
 
-      // Tema tercihini yükle
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        bodyEl.classList.add('dark-theme');
-        themeToggleBtn.textContent = 'Açık Tema';
-      }
+<!-- Antivirus Result Button -->
+<section>
+  <div class="section-title">
+    <h2>Güvenlik Kontrolü</h2>
+  </div>
+  <button class="btn antivirus-btn" onclick="alert('Antivirus sonucu: Güvenli!')">Antivirus Sonucu</button>
+</section>
 
-      // Tema değiştirme
-      themeToggleBtn.addEventListener('click', () => {
-        bodyEl.classList.toggle('dark-theme');
-        if (bodyEl.classList.contains('dark-theme')) {
-          themeToggleBtn.textContent = 'Açık Tema';
-          localStorage.setItem('theme', 'dark');
-        } else {
-          themeToggleBtn.textContent = 'Koyu Tema';
-          localStorage.setItem('theme', 'light');
-        }
-      });
-    })();
-  </script>
+</main>
+
+<!-- Footer -->
+<footer style="text-align:center; padding:1.5rem; background:#eee; margin-top:2rem;">
+  Tüm hakları saklıdır © 2025
+</footer>
+
+<script>
+  // Theme toggle script
+  const themeBtn = document.getElementById('themeToggle');
+  const body = document.body;
+  function toggleTheme() {
+    body.classList.toggle('dark-theme');
+    if (body.classList.contains('dark-theme')) {
+      themeBtn.textContent = 'Aydınlık Tema';
+    } else {
+      themeBtn.textContent = 'Karanlık Tema';
+    }
+  }
+  themeBtn.addEventListener('click', toggleTheme);
+
+  // Animate sections on load
+  document.querySelectorAll('section').forEach(sec => {
+    sec.animate([
+      { opacity: 0, transform: 'translateY(20px)' },
+      { opacity: 1, transform: 'translateY(0)' }
+    ], {
+      duration: 800,
+      fill: 'forwards',
+      easing: 'ease-out'
+    });
+  });
+</script>
+
 </body>
 </html>
