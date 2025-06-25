@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-sans">
+  <div id="login" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Kullanıcı Adı Seç</h2>
+      <input id="username" type="text" class="border border-gray-300 p-3 w-full mb-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Kullanıcı adı" maxlength="20">
+      <button onclick="joinChat()" class="bg-blue-600 text-white p-3 rounded-lg w-full hover:bg-blue-700 transition">Giriş Yap</button>
+      <p id="error" class="text-red-500 text-sm mt-2 hidden text-center">Bu kullanıcı adı alınmış!</p>
+    </div>
+  </div>
+  <div id="chat" class="hidden flex flex-col h-screen">
+    <div class="flex flex-1 flex-col md:flex-row">
+      <div class="w-full md:w-1/4 bg-gray-100 p-4 border-r border-gray-200 overflow-y-auto">
+        <h2 class="text-lg font-semibold text-gray-800 mb-3">Aktif Kullanıcılar</h2>
+        <ul id="active-users" class="space-y-2"></ul>
+      </div>
+      <div class="w-full md:w-3/4 flex flex-col">
+        <div id="messages" class="flex-1 p-4 overflow-y-auto bg-white"></div>
+        <div class="p-3 bg-gray-50 border-t border-gray-200 flex items-center">
+          <input id="message-input" type="text" class="flex-1 border border-gray-300 p-3 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Mesaj yaz (max 60 karakter)" maxlength="60">
+          <button onclick="toggleEmojiPicker()" class="bg-gray-200 p-3 mx-2 rounded-lg hover:bg-gray-300 transition">😊</button>
+          <div id="emoji-picker" class="hidden absolute bottom-20"></div>
+          <button onclick="sendMessage()" class="bg-blue-600 text-white p-3 rounded-r-lg hover:bg-blue-700 transition">Gönder</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/emoji-picker-react@4.5.0/dist/index.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
